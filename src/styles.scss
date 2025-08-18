@@ -1,1 +1,175 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/variables';
+@import 'styles/mixins';
+
+:root {
+  --font-size: 14px;
+  --font-family-marvel: "Microsoft YaHei", "Helvetica Neue", "HelveticaNeue", "Helvetica", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+  
+  --marvel-red: #ed1d24;
+  --marvel-blue: #0076ce;
+  --marvel-yellow: #ffd700;
+  --marvel-white: #ffffff;
+  --marvel-black: #000000;
+  --marvel-dark-red: #c41e3a;
+  --marvel-dark-blue: #003f7f;
+  
+  --background: var(--marvel-white);
+  --foreground: var(--marvel-black);
+  --card: var(--marvel-white);
+  --card-foreground: var(--marvel-black);
+  --popover: var(--marvel-white);
+  --popover-foreground: var(--marvel-black);
+  --primary: var(--marvel-red);
+  --primary-foreground: var(--marvel-white);
+  --secondary: var(--marvel-blue);
+  --secondary-foreground: var(--marvel-white);
+  --muted: #f5f5f5;
+  --muted-foreground: #666666;
+  --accent: var(--marvel-yellow);
+  --accent-foreground: var(--marvel-black);
+  --destructive: var(--marvel-dark-red);
+  --destructive-foreground: var(--marvel-white);
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f8f9fa;
+  --switch-background: #cbced4;
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+  --ring: var(--marvel-red);
+  --chart-1: var(--marvel-red);
+  --chart-2: var(--marvel-blue);
+  --chart-3: var(--marvel-yellow);
+  --chart-4: var(--marvel-dark-red);
+  --chart-5: var(--marvel-dark-blue);
+  --radius: 0.5rem;
+  --sidebar: var(--marvel-white);
+  --sidebar-foreground: var(--marvel-black);
+  --sidebar-primary: var(--marvel-red);
+  --sidebar-primary-foreground: var(--marvel-white);
+  --sidebar-accent: var(--marvel-blue);
+  --sidebar-accent-foreground: var(--marvel-white);
+  --sidebar-border: rgba(0, 0, 0, 0.1);
+  --sidebar-ring: var(--marvel-red);
+}
+
+.dark {
+  --background: var(--marvel-black);
+  --foreground: var(--marvel-white);
+  --card: #1a1a1a;
+  --card-foreground: var(--marvel-white);
+  --popover: var(--marvel-black);
+  --popover-foreground: var(--marvel-white);
+  --primary: var(--marvel-red);
+  --primary-foreground: var(--marvel-white);
+  --secondary: var(--marvel-blue);
+  --secondary-foreground: var(--marvel-white);
+  --muted: #2a2a2a;
+  --muted-foreground: #cccccc;
+  --accent: var(--marvel-yellow);
+  --accent-foreground: var(--marvel-black);
+  --destructive: var(--marvel-dark-red);
+  --destructive-foreground: var(--marvel-white);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: #2a2a2a;
+  --ring: var(--marvel-red);
+  --font-weight-medium: 600;
+  --font-weight-normal: 400;
+  --chart-1: var(--marvel-red);
+  --chart-2: var(--marvel-blue);
+  --chart-3: var(--marvel-yellow);
+  --chart-4: var(--marvel-dark-red);
+  --chart-5: var(--marvel-dark-blue);
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: var(--marvel-white);
+  --sidebar-primary: var(--marvel-red);
+  --sidebar-primary-foreground: var(--marvel-white);
+  --sidebar-accent: var(--marvel-blue);
+  --sidebar-accent-foreground: var(--marvel-white);
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--marvel-red);
+}
+
+* {
+  border-color: var(--border);
+  outline-color: var(--ring);
+  outline-opacity: 0.5;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family-marvel);
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-family-marvel);
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  font-family: var(--font-family-marvel);
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  font-family: var(--font-family-marvel);
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  font-family: var(--font-family-marvel);
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  font-family: var(--font-family-marvel);
+}
+
+p {
+  font-size: 1rem;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  font-family: var(--font-family-marvel);
+}
+
+label {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  font-family: var(--font-family-marvel);
+}
+
+button {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+  font-family: var(--font-family-marvel);
+}
+
+input {
+  font-size: 1rem;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.4;
+  font-family: var(--font-family-marvel);
+}
+
+.marvel-gradient {
+  background: linear-gradient(135deg, #ed1d24 0%, #0076ce 100%);
+}
+
+.marvel-shadow {
+  box-shadow: 0 4px 6px -1px rgba(237, 29, 36, 0.1), 0 2px 4px -1px rgba(237, 29, 36, 0.06);
+}
+
+.marvel-border {
+  border: 2px solid #ed1d24;
+}

@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # Development environment
+  heroes-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: heroes-dev
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    command: npm start
+    networks:
+      - heroes-network
+
+  # Production environment
+  heroes-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: heroes-prod
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - heroes-network
+    restart: unless-stopped
+
+  # Production with custom port
+  heroes-prod-custom:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: heroes-prod-custom
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - heroes-network
+    restart: unless-stopped
+
+  # Testing environment
+  heroes-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: heroes-test
+    ports:
+      - "4201:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=test
+    command: npm test
+    networks:
+      - heroes-network
+
+networks:
+  heroes-network:
+    driver: bridge
+
+volumes:
+  node_modules: 

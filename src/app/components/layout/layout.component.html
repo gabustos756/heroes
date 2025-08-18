@@ -1,0 +1,36 @@
+<div class="layout-container">
+  @if (isLoading()) {
+    <app-loading [fullScreen]="true" text="Loading heroes..."></app-loading>
+  }
+  <app-banner></app-banner>
+  
+  <div class="main-content">
+    <div class="hero-grid">
+      <div class="hero-details-section">
+        <app-hero-details [hero]="selectedHero()"></app-hero-details>
+      </div>
+      
+      <div class="hero-list-section">
+        <app-hero-list
+          [heroes]="heroes()"
+          [filteredHeroes]="filteredHeroes()"
+          [selectedHero]="selectedHero()"
+          [isLoading]="isLoading()"
+          [searchQuery]="searchQuery()"
+          (searchChange)="onSearchChange()"
+          (createHero)="onCreateHero()"
+          (heroSelect)="onHeroSelect($event)"
+          (heroEdit)="onHeroEdit($event)"
+          (heroDelete)="onHeroDelete($event)"
+        ></app-hero-list>
+      </div>
+    </div>
+  </div>
+
+  <app-hero-form
+    [isOpen]="isFormOpen()"
+    [hero]="editingHero()"
+    (onClose)="onFormClose()"
+    (onSubmit)="onFormSubmit($event)"
+  ></app-hero-form>
+</div>

@@ -1,0 +1,87 @@
+:host {
+  display: block;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  
+  &.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    padding: 0;
+  }
+  
+  &.size-small {
+    .loading-spinner {
+      transform: scale(0.7);
+    }
+  }
+  
+  &.size-medium {
+    .loading-spinner {
+      transform: scale(1);
+    }
+  }
+  
+  &.size-large {
+    .loading-spinner {
+      transform: scale(1.3);
+    }
+  }
+}
+
+.loading-spinner {
+  text-align: center;
+  color: var(--marvel-white);
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(237, 29, 36, 0.3);
+  border-top: 4px solid var(--marvel-red);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+.loading-text {
+  font-family: var(--font-family-marvel);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--marvel-white);
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Marvel theme variations
+.loading-container:not(.fullscreen) {
+  .spinner {
+    border-color: rgba(237, 29, 36, 0.2);
+    border-top-color: var(--marvel-red);
+  }
+  
+  .loading-text {
+    color: var(--marvel-red);
+    text-shadow: none;
+  }
+}
+
+// Hover effects
+.loading-container:hover .spinner {
+  border-top-color: var(--marvel-dark-red);
+  transition: border-top-color 0.3s ease;
+} 

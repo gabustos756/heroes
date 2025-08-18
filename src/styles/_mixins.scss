@@ -1,0 +1,182 @@
+@import 'variables';
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  } @else if $breakpoint == 2xl {
+    @media (min-width: $breakpoint-2xl) { @content; }
+  }
+}
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+// Typography utilities
+@mixin text-style($size, $weight: $font-weight-normal, $line-height: $line-height-normal) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+@mixin heading-style($size, $weight: $font-weight-bold) {
+  @include text-style($size, $weight, $line-height-relaxed);
+}
+
+// Spacing utilities
+@mixin spacing($property, $size) {
+  #{$property}: $size;
+}
+
+@mixin padding($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  padding: $top $right $bottom $left;
+}
+
+@mixin margin($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  margin: $top $right $bottom $left;
+}
+
+// Border utilities
+@mixin border($width: 1px, $style: solid, $color: $border) {
+  border: $width $style $color;
+}
+
+@mixin border-radius($radius: $radius-md) {
+  border-radius: $radius;
+}
+
+// Shadow utilities
+@mixin shadow($level: md) {
+  @if $level == sm {
+    box-shadow: $shadow-sm;
+  } @else if $level == md {
+    box-shadow: $shadow-md;
+  } @else if $level == lg {
+    box-shadow: $shadow-lg;
+  } @else if $level == xl {
+    box-shadow: $shadow-xl;
+  }
+}
+
+// Transition utilities
+@mixin transition($properties: all, $duration: $transition-normal) {
+  transition: $properties $duration;
+}
+
+// Focus states
+@mixin focus-ring($color: $primary, $offset: 2px) {
+  &:focus {
+    outline: 2px solid $color;
+    outline-offset: $offset;
+  }
+}
+
+// Hover effects
+@mixin hover-lift($distance: 2px) {
+  transition: transform $transition-normal;
+  
+  &:hover {
+    transform: translateY(-$distance);
+  }
+}
+
+// Button styles
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: $radius-md;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-normal;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-variant($background: $primary, $color: $primary-foreground, $hover-background: $primary-hover) {
+  background-color: $background;
+  color: $color;
+  
+  &:hover:not(:disabled) {
+    background-color: $hover-background;
+  }
+}
+
+// Input styles
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  transition: border-color $transition-normal;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary;
+  }
+  
+  &::placeholder {
+    color: $muted-foreground;
+  }
+}
+
+// Scrollbar styles
+@mixin custom-scrollbar($width: 4px, $track-color: transparent, $thumb-color: $marvel-blue, $hover-color: $marvel-dark-blue) {
+  scrollbar-width: thin;
+  scrollbar-color: $thumb-color $track-color;
+  
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: $width / 2;
+    
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+}
+
+// Marvel-themed scrollbar
+@mixin marvel-scrollbar($width: 4px) {
+  @include custom-scrollbar($width, transparent, $marvel-blue, $marvel-dark-blue);
+} 

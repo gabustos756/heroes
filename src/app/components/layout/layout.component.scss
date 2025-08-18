@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+
+.layout-container {
+  min-height: 100vh;
+  background-color: var(--background);
+  
+  .main-content {
+    width: 100%;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+    
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 1.5rem;
+      min-height: 500px;
+      
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      
+      .hero-details-section {
+        grid-column: span 1;
+        order: 2;
+        
+        @media (min-width: 1024px) {
+          grid-column: span 2;
+          order: 1;
+        }
+      }
+      
+      .hero-list-section {
+        grid-column: span 1;
+        order: 1;
+        
+        @media (min-width: 1024px) {
+          order: 2;
+        }
+      }
+    }
+  }
+}

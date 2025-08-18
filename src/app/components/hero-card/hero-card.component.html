@@ -1,0 +1,60 @@
+<div 
+  class="card cursor-pointer transition-all duration-200 hover:marvel-shadow"
+  [class.marvel-border]="isSelected"
+  [class.marvel-shadow]="isSelected"
+  [class.scale-105]="isSelected"
+  [class.border-2]="!isSelected"
+  [class.border-transparent]="!isSelected"
+  [class.hover:border-secondary-20]="!isSelected"
+  (click)="onCardClick()"
+>
+  <div class="card-content p-0">
+    <div class="relative">
+      <img
+        [src]="hero.image"
+        [alt]="hero.name"
+        class="w-full h-32 object-cover rounded-t-lg"
+      />
+      <div class="absolute top-2 right-2">
+        <div class="bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs font-bold">
+          <svg class="w-3 h-3 inline mr-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          HERO
+        </div>
+      </div>
+    </div>
+    
+    <div class="p-4">
+      <div class="mb-3">
+        <h3 class="font-bold text-lg truncate text-foreground">{{ hero.name }}</h3>
+        <p *ngIf="hero.alias" class="text-sm text-muted-foreground italic">"{{ hero.alias }}"</p>
+        <p class="text-sm text-secondary font-medium">{{ hero.nationality }}</p>
+        <span *ngIf="hero.team" class="text-xs text-accent-foreground bg-accent px-2 py-1 rounded mt-1 inline-block">
+          {{ hero.team }}
+        </span>
+      </div>
+      
+      <div class="flex gap-2">
+        <button
+          (click)="onEditClick($event)"
+          class="flex-1 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground border px-3 py-2 rounded text-sm font-medium transition-colors"
+        >
+          <svg class="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+          </svg>
+          Edit
+        </button>
+        <button
+          (click)="onDeleteClick($event)"
+          class="flex-1 bg-destructive text-destructive-foreground hover:bg-destructive/90 px-3 py-2 rounded text-sm font-medium transition-colors"
+        >
+          <svg class="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+          </svg>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+@if (isOpen) {
+  <div class="modal-overlay" (click)="onOverlayClick()">
+    <div class="modal-dialog" (click)="onModalClick($event)">
+      <div class="modal-header">
+        <h3>{{ data.title }}</h3>
+        <button class="close-btn" (click)="onClose()">×</button>
+      </div>
+      
+      <div class="modal-body">
+        <p [innerHTML]="data.message"></p>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="onCancel()">
+          {{ data.cancelText }}
+        </button>
+        <button 
+          class="btn" 
+          [class.btn-danger]="data.type === 'danger'"
+          [class.btn-warning]="data.type === 'warning'"
+          [class.btn-info]="data.type === 'info'"
+          (click)="onConfirm()"
+        >
+          {{ data.confirmText }}
+        </button>
+      </div>
+    </div>
+  </div>
+} 
