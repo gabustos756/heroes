@@ -18,7 +18,7 @@ describe('HeroListComponent', () => {
     nationality: 'American',
     team: 'Avengers',
     description: 'Friendly neighborhood Spider-Man',
-    image: 'assets/spiderman.jpg'
+    image: 'https://images.unsplash.com/photo-1601127939825-a1416676187c?w=400&h=400&fit=crop&crop=face'
   };
 
   beforeEach(async () => {
@@ -153,6 +153,7 @@ describe('HeroListComponent', () => {
     
     const alertModal = fixture.nativeElement.querySelector('app-alert-modal');
     expect(alertModal).toBeTruthy();
+    expect(alertModal.getAttribute('ng-reflect-is-open')).toBe('true');
   });
 
   it('should not display alert-modal component when showDeleteModal is false', () => {
@@ -160,6 +161,7 @@ describe('HeroListComponent', () => {
     fixture.detectChanges();
     
     const alertModal = fixture.nativeElement.querySelector('app-alert-modal');
-    expect(alertModal).toBeFalsy();
+    expect(alertModal).toBeTruthy(); // Component is always in DOM
+    expect(alertModal.getAttribute('ng-reflect-is-open')).toBe('false'); // But isOpen is false
   });
 }); 

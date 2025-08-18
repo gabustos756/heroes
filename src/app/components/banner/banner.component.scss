@@ -1,134 +1,123 @@
-:host {
-  display: block;
-}
+@import '../../../styles/variables';
 
-.relative {
+.banner {
   position: relative;
-}
-
-.w-full {
   width: 100%;
-}
-
-.h-96 {
-  height: 24rem;
-}
-
-.overflow-hidden {
+  height: 24rem; // 96 = 24rem
   overflow: hidden;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(237, 29, 36, 0.8) 0%,
+      rgba(0, 118, 206, 0.8) 100%
+    );
+    opacity: 0.8;
+  }
+
+  &__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__text-container {
+    text-align: center;
+    color: white;
+    max-width: 56rem; // 4xl = 56rem
+    padding: 0 1.5rem; // px-6 = 1.5rem
+  }
+
+  &__title {
+    font-size: 3.75rem; // text-6xl = 3.75rem
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 1.5rem; // mb-6 = 1.5rem
+    letter-spacing: 0.025em; // tracking-wide
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) 
+            drop-shadow(0 4px 3px rgb(0 0 0 / 0.1)); // drop-shadow-lg
+  }
+
+  &__subtitle {
+    font-size: 1.25rem; // text-xl = 1.25rem
+    line-height: 1.75rem;
+    margin-bottom: 2rem; // mb-8 = 2rem
+    font-weight: 500;
+    filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) 
+            drop-shadow(0 2px 2px rgb(0 0 0 / 0.06)); // drop-shadow-md
+  }
+
+  &__decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; // gap-8 = 2rem
+
+    &-line {
+      height: 0.25rem; // h-1 = 0.25rem
+      width: 4rem; // w-16 = 4rem
+      background-color: #fbbf24; // bg-yellow-400
+    }
+
+    &-text {
+      font-size: 0.875rem; // text-sm = 0.875rem
+      line-height: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em; // tracking-wider
+      font-weight: 700;
+    }
+  }
 }
 
-.absolute {
-  position: absolute;
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .banner {
+    height: 20rem;
+
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__subtitle {
+      font-size: 1.125rem;
+    }
+  }
 }
 
-.inset-0 {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
+@media (max-width: $breakpoint-sm) {
+  .banner {
+    height: 16rem;
 
-.flex {
-  display: flex;
-}
+    &__title {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
 
-.items-center {
-  align-items: center;
-}
+    &__subtitle {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
 
-.justify-center {
-  justify-content: center;
-}
+    &__decoration {
+      gap: 1rem;
 
-.text-center {
-  text-align: center;
-}
+      &-line {
+        width: 3rem;
+      }
 
-.text-white {
-  color: white;
-}
-
-.max-w-4xl {
-  max-width: 56rem;
-}
-
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
-.font-bold {
-  font-weight: 700;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.tracking-wide {
-  letter-spacing: 0.025em;
-}
-
-.drop-shadow-lg {
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
-.drop-shadow-md {
-  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.gap-8 {
-  gap: 2rem;
-}
-
-.h-1 {
-  height: 0.25rem;
-}
-
-.w-16 {
-  width: 4rem;
-}
-
-.bg-yellow-400 {
-  background-color: #fbbf24;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.tracking-wider {
-  letter-spacing: 0.05em;
-}
-
-.object-cover {
-  object-fit: cover;
-}
-
-.opacity-80 {
-  opacity: 0.8;
+      &-text {
+        font-size: 0.75rem;
+      }
+    }
+  }
 } 

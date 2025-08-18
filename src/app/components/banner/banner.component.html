@@ -1,24 +1,24 @@
-<div class="relative w-full h-96 overflow-hidden">
+<div class="banner">
   <img
     [src]="bannerImage"
     alt="Marvel superheroes banner"
-    class="w-full h-full object-cover"
+    class="banner__image"
   />
-  <div class="absolute inset-0 marvel-gradient opacity-80"></div>
-  <div class="absolute inset-0 flex items-center justify-center">
-    <div class="text-center text-white max-w-4xl px-6">
-      <h1 class="text-6xl font-bold mb-6 tracking-wide drop-shadow-lg text-white">
+  <div class="banner__overlay"></div>
+  <div class="banner__content">
+    <div class="banner__text-container">
+      <h1 class="banner__title">
         MARVEL HEROES
       </h1>
-      <p class="text-xl mb-8 drop-shadow-md text-white font-medium">
+      <p class="banner__subtitle">
         Discover the legendary superheroes of the Marvel Universe
       </p>
-      <div class="flex justify-center items-center gap-8">
-        <div class="h-1 w-16 bg-yellow-400"></div>
-        <div class="text-sm uppercase tracking-wider font-bold text-white">
+      <div class="banner__decoration">
+        <div class="banner__decoration-line"></div>
+        <div class="banner__decoration-text">
           Earth's Mightiest Heroes
         </div>
-        <div class="h-1 w-16 bg-yellow-400"></div>
+        <div class="banner__decoration-line"></div>
       </div>
     </div>
   </div>

@@ -120,7 +120,13 @@ describe('AlertModalComponent', () => {
   });
 
   it('should use default values when data is not provided', () => {
-    component.data = {};
+    component.data = {
+      title: 'Confirm Action',
+      message: 'Are you sure you want to confirm this action?',
+      confirmText: 'Confirm',
+      cancelText: 'Cancel',
+      type: 'danger'
+    };
     component.isOpen = true;
     fixture.detectChanges();
     

@@ -25,7 +25,7 @@ describe('LayoutComponent', () => {
     nationality: 'American',
     team: 'Avengers',
     description: 'Friendly neighborhood Spider-Man',
-    image: 'assets/spiderman.jpg'
+    image: 'https://images.unsplash.com/photo-1601127939825-a1416676187c?w=400&h=400&fit=crop&crop=face'
   };
 
   beforeEach(async () => {
@@ -86,9 +86,43 @@ describe('LayoutComponent', () => {
     expect(component.filteredCount()).toBe(1);
   });
 
-  it('should filter heroes when search query changes', () => {
-    component.onSearchChange();
-    expect(mockHeroService.searchHeroes).toHaveBeenCalled();
+  it('should filter heroes when search query changes', (done) => {
+    // Set up the search query
+    component.onSearchInputChange('spider');
+    
+    // Wait for the debounce time (500ms) and then check
+    setTimeout(() => {
+      expect(mockHeroService.searchHeroes).toHaveBeenCalledWith('spider');
+      done();
+    }, 600);
+  });
+
+  it('should filter heroes locally when search query is empty', () => {
+    // Set up empty search query
+    component.onSearchInputChange('');
+    
+    // Should not call the service for empty queries
+    expect(mockHeroService.searchHeroes).not.toHaveBeenCalled();
+    
+    // Should show all heroes
+    expect(component.filteredHeroes()).toEqual([mockHero]);
+  });
+
+  it('should update search query signal when onSearchInputChange is called', () => {
+    component.onSearchInputChange('test query');
+    
+    // The search query signal should be updated immediately
+    expect(component.searchQuery()).toBe('test query');
+  });
+
+  it('should emit to search subject when onSearchInputChange is called', () => {
+    // Access the private searchSubject for testing
+    const searchSubject = (component as any).searchSubject;
+    spyOn(searchSubject, 'next');
+    
+    component.onSearchInputChange('test');
+    
+    expect(searchSubject.next).toHaveBeenCalledWith('test');
   });
 
   it('should select hero when onHeroSelect is called', () => {
