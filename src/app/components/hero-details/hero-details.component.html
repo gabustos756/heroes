@@ -23,11 +23,6 @@
             [alt]="hero.name"
             class="w-40 h-40 rounded-full object-cover border-4 border-primary shadow-lg"
           />
-          <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-            <div class="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold">
-              MARVEL
-            </div>
-          </div>
         </div>
         <h2 class="text-3xl font-bold mt-6 text-foreground">{{ hero.name }}</h2>
         <p *ngIf="hero.alias" class="text-lg text-muted-foreground italic mt-2">"{{ hero.alias }}"</p>

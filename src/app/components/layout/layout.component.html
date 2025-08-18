@@ -17,7 +17,7 @@
           [selectedHero]="selectedHero()"
           [isLoading]="isLoading()"
           [searchQuery]="searchQuery()"
-          (searchChange)="onSearchChange()"
+          (searchChange)="onSearchInputChange($event)"
           (createHero)="onCreateHero()"
           (heroSelect)="onHeroSelect($event)"
           (heroEdit)="onHeroEdit($event)"

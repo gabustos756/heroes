@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "name": "Spider-Man",
+    "alias": "Peter Parker",
+    "powers": ["Wall-crawling", "Spider-sense", "Super strength", "Web-shooting"],
+    "nationality": "American",
+    "team": "Avengers",
+    "description": "Bitten by a radioactive spider, Peter Parker gained incredible spider-like abilities. With great power comes great responsibility, and Spider-Man protects New York City from criminals and super-villains alike.",
+    "image": "https://images.unsplash.com/photo-1601127939825-a1416676187c?w=400&h=400&fit=crop&crop=face"
+  },
+  {
+    "id": "2",
+    "name": "Thor",
+    "alias": "God of Thunder",
+    "powers": ["Super strength", "Weather control", "Mjolnir mastery", "Flight"],
+    "nationality": "Asgardian",
+    "team": "Avengers",
+    "description": "The Asgardian God of Thunder, Thor wields the mystical hammer Mjolnir and commands the power of lightning. As a founding member of the Avengers, he protects both Earth and the Nine Realms.",
+    "image": "https://images.unsplash.com/photo-1559535332-db9971090158?w=400&h=400&fit=crop&crop=face"
+  },
+  {
+    "id": "3",
+    "name": "Captain America",
+    "alias": "Steve Rogers",
+    "powers": ["Enhanced strength", "Enhanced speed", "Vibranium shield", "Tactical genius"],
+    "nationality": "American",
+    "team": "Avengers",
+    "description": "Enhanced by the Super Soldier Serum during World War II, Steve Rogers became Captain America. Armed with his indestructible vibranium shield, he leads the Avengers as a symbol of freedom and justice.",
+    "image": "https://images.unsplash.com/photo-1573405202162-52ba7a3e0377?w=400&h=400&fit=crop&crop=face"
+  },
+  {
+    "id": "4",
+    "name": "Black Widow",
+    "alias": "Natasha Romanoff",
+    "powers": ["Expert martial artist", "Master spy", "Weapons expert", "Enhanced agility"],
+    "nationality": "Russian",
+    "team": "Avengers",
+    "description": "A former Russian spy turned S.H.I.E.L.D. agent, Natasha Romanoff is a master assassin and martial artist. Despite having no superpowers, she more than holds her own alongside gods and super soldiers.",
+    "image": "https://images.unsplash.com/photo-1722264485359-10b77086900d?w=400&h=400&fit=crop&crop=face"
+  },
+  {
+    "id": "5",
+    "name": "Iron Man",
+    "alias": "Tony Stark",
+    "powers": ["Genius intellect", "Advanced technology", "Powered armor", "Flight"],
+    "nationality": "American",
+    "team": "Avengers",
+    "description": "Billionaire genius Tony Stark built a powered suit of armor to escape captivity and became Iron Man. Using his wealth and intellect, he continues to upgrade his technology to protect the world.",
+    "image": "https://images.unsplash.com/photo-1650610276333-cb64e6724519?w=400&h=400&fit=crop&crop=face"
+  }
+] 

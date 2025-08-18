@@ -18,7 +18,7 @@ describe('HeroListComponent', () => {
     nationality: 'American',
     team: 'Avengers',
     description: 'Friendly neighborhood Spider-Man',
-    image: 'spiderman.jpg'
+    image: 'assets/spiderman.jpg'
   };
 
   beforeEach(async () => {

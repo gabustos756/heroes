@@ -91,7 +91,16 @@ export class LayoutComponent implements OnInit, OnDestroy {
   }
 
   onSearchChange(): void {
-    this.searchSubject.next(this._searchQuery());
+    // Get the current search query from the input
+    const currentQuery = this._searchQuery();
+    this.searchSubject.next(currentQuery);
+  }
+
+  onSearchInputChange(query: string): void {
+    // Update the search query signal first
+    this._searchQuery.set(query);
+    // Then emit to the search subject
+    this.searchSubject.next(query);
   }
 
   onHeroSelect(hero: Hero): void {

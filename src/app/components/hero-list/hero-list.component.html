@@ -1,5 +1,5 @@
 <div class="hero-database-header">
-  <h2 class="title">Hero Database</h2>
+  <h2 class="title">Heroes</h2>
   <p class="subtitle">Manage your Marvel heroes collection</p>
 </div>
 
@@ -26,7 +26,9 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
       </svg>
     } @else {
-      <app-loading [size]="'small'" text=""></app-loading>
+      <div class="button-loading-container">
+        <app-loading [size]="'small'" text=""></app-loading>
+      </div>
     }
     <span class="button-text desktop">{{ isLoading ? 'Creating...' : 'New Hero' }}</span>
     <span class="button-text mobile">{{ isLoading ? '...' : '+' }}</span>
